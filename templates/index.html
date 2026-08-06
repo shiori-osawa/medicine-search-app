@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang=""ja">
+
+<head>
+    <meta chrset="UTF-8">
+    <!--rel="stylesheet"→これはデザイン（CSS）のファイルです、href=→使うファイル-->
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css') }}">
+    <title>代替薬検索アプリ</title>
+    
+    
+</head>
+
+<body>
+    <h1>代替薬検索アプリ</h1>
+   <div class="form-box">
+   <form method="POST"><!--formタグは送信する情報を記載する-->
+    <p>💊薬名(必須)</p>
+    <input type="text" name="medicine">
+   <!--inputタグは入力欄、brタグは改行-->
+   <p>🙎患者情報(任意)</p>
+   <div class="condition-box">
+     <input type="checkbox" name="condition" value="高齢者">高齢者<br>
+     <input type="checkbox" name="condition" value="高血圧">高血圧<br>
+     <input type="checkbox" name="condition" value="小児">小児<br>
+     <input type="checkbox" name="condition" value="妊婦">妊婦<br>
+     <input type="checkbox" name="condition" value="授乳婦">授乳婦<br>
+     <input type="checkbox" name="condition" value="腎機能低下">腎機能低下<br>
+     <input type="checkbox" name="condition" value="肝機能低下">肝機能低下<br>
+     <input type="checkbox" name="condition" value="気管支喘息">気管支喘息<br>
+     <input type="checkbox" name="condition" value="喫煙">喫煙<br>
+     <input type="checkbox" name="condition" value="飲酒">飲酒<br>
+     
+   </div>
+
+   <p>💊現在服薬中の薬</p>
+   <input type="text" name="current_medicine"><br>
+
+   <div class="button-area"><!--ボタンが中央に来る-->
+        <button type="submit" id="search-button">
+            検索
+        </button>
+   </div>
+   <!--検索中ボタンを押すとクルクルする-->
+   <p id="loading-message">
+        <span class="spinner"></span>
+        検索中...
+   </p>
+</form>
+</div>
+{% if message %}
+        <p class="message">{{ message }}</p>
+{% endif %}
+
+{% if answer %}<!--AIの回答が入ったときだけ枠を表示する-->
+<h2>🔍️検索結果</h2><!--divタグは箱を作る-->
+
+<div class="result-box">
+    <pre>{{ answer|safe }}</pre><!--改行、空白をそのまま表示-->
+</div>
+{% endif %}
+
+<!--JavaScriptを読み込みます-->
+<script src="{{ url_for('static', filename= 'script.js')}}"></script>
+
+
+</body>
+</html>

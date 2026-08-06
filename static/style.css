@@ -1,0 +1,158 @@
+/*margin外側の余白　padding内側の余白*/
+h1{
+    text-align: center; /*タイトルが真ん中に*/
+    color: #1976d2;
+    margin-bottom: 30px;/*タイトルと入力欄の間が広がって見やすくなる*/
+}
+body{
+    
+    width: 700px; /*画面幅を700pxにする*/
+    margin:0 auto; /*画面の真ん中に寄る*/
+    font-family: sans-serif; /*文字が少し見やすくなる*/
+}
+button{
+    width:50%;
+    background-color: #1976d2;
+    color: white;/*文字の色*/
+    padding: 12px 24px;/*文字の周りの余白　上下　左右*/
+    border: none;/*枠線消す*/
+    border-radius: 8px;/*角を丸くする*/
+    font-size: 18px;
+    cursor: pointer;/*マウスを乗せたとき☝️なる*/
+    margin-top: 20px; /*ボタンの上外側部分に余白ができる*/
+    transition: all 0.2s ease;/*all全部　0.2s0.2秒かけて変化　ease最初と最後が自然な動き*/
+}
+
+.button-area{
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*マウスを乗せたときだけ少し濃い緑になる*/
+button:hover{
+    background-color:#1565c0;
+}
+/*ボタンを押したとき少し沈む*/
+button:active{
+    transform: scale(0.98);
+}
+/*文字を入力する欄だけにデザインする*/
+input[type="text"]{
+    width:100%;/*親要素の100％まで広げる*/
+    box-sizing:border-box;/*paddingやborderを含めて幅を100％にする*/
+    max-width: 500px;/*500px以上には広がらない*/
+    padding: 10px;/*入力欄の内側の余白*/
+    border-radius: 8px;/*角丸くする*/
+    border:1px solid #ccc;/*1px線の太さ　solid実線　#ccc線の色*/
+    font-size: 16px;
+}
+.form-box{
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f8fff8;
+    line-height: 1.8;
+}
+h2{
+    margin-bottom: 30px;/*タイトルとフォームの間を空ける*/
+    color: #1976d2;
+    font-size: 28px;
+    border-bottom: 2px solid #1976d2;
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+p{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.result-box{
+    border: 2px solid #1976d2;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    min-height: 150px;
+    line-height: 1.8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0.1);/*0横方向のズレ　2下方向に少し影　8ぼかし具合　rgba影の色（黒を10％くらいの薄さ）*/
+}
+
+li{
+    margin-bottom: 12px;
+}
+.result-box pre{
+    white-space: pre-wrap;/*pre-wrap改行はそのままで、長い文章は折り返す*/
+    font-family: inherit;/*inherit他の文字と同じフォントにする*/
+    margin: 0;/*余計な余白をなくす*/
+}
+
+/*入力欄をクリックしたときに青く光らせる*/
+input:focus,
+textarea:focus{ /*入力欄をクリックしたとき*/
+    outline: none;/*ブラウザ標準の枠線を消す*/
+    border: 2px solid #1976d2;
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.4);
+}
+
+.condition-box{
+    columns:2;/*縦に2列に並べる*/
+}
+
+/*.condition-box{ 横並び2列になる
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}*/
+
+/*薬名とか入力してなかったらエラーメッセージがわかりやすく表示される*/
+.message{
+    color: #d32f2f;
+    background-color: #ffebee;
+    border: 1px solid #ef9a9a;
+    border-radius: 8px;/*角丸くする*/
+    padding: 12px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/*idをCSSで指定するときは#が必要*/
+/*最初は検索中メッセージは表示しない*/
+#loding-message {
+    display: none;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+/*クルクル回る丸*/
+.spinner {
+    display: inline-block;/*文字の横に並べられる箱*/
+    width: 16px;
+    height: 16px;/*width16☓height16で正方形を作る*/
+    border: 3px, solid #c8e6c9;
+    border-top: 3px solid #2e7d32;/*丸の上の部分だけ濃くすることによって回って見える*/
+    border-radius: 50%;/*角を取って丸くする*/
+
+    animation: spin 1s linear infinite;/*spin アニメーションの名前　linerar　一定の速さで　infinite　ずっと繰り返す*/
+}
+
+/*クルクル回るアニメーションを作る*/
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*スマホ用のデザイン*/
+@media (max-width:600px){
+    .form-box{
+        padding: 20px; /*スマホでは余白を少し狭くする*/
+    }
+    h2{
+        font-size:24px;
+    }
+    button{
+        width:100%
+    }
+}
