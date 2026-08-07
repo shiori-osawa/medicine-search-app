@@ -7,20 +7,20 @@ const searchButton = document.getElementById("search-button");//ここではボ�
 //検索中メッセージを表示する場所を取得する
 const loadingMessage = document.getElementById("loading-message"); 
 
+
 //点の数を入れる(点が1つ、2つと変化する) let=中身が変わるときに使う
 let dots = "";
-
+const form = document.querySelector("form");
 //検索ボタンがクリックされたとき
 //ここでボタンが押されたら◯◯してねという約束をしてる
-searchButton.addEventListener("click", function () {
+form.addEventListener("submit", function () {
+    loadingMessage.style.display = "block";
     setInterval(function (){
         dots += ".";
-        
-        loadingMessage.style.display = "block";
 
         loadingMessage.innerHTML =
             '<span class="spinner"></span>検索中' + dots;
-            
+
         if (dots.length == 3){
             dots = "";
         }
