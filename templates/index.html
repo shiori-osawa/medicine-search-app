@@ -4,7 +4,8 @@
 <head>
     <meta chrset="UTF-8">
     <!--rel="stylesheet"→これはデザイン（CSS）のファイルです、href=→使うファイル-->
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" 
+    href="{{url_for('static',filename='style.css') }}?v=2">
     <title>代替薬検索アプリ</title>
     
     
@@ -60,7 +61,7 @@
 {% endif %}
 
 <!--JavaScriptを読み込みます-->
-<script src="{{ url_for('static', filename= 'script.js')}}"></script>
+<script src="{{ url_for('static', filename= 'script.js')}}?v=2"></script>
 
 
 </body>
