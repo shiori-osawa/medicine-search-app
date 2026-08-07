@@ -116,7 +116,7 @@ textarea:focus{ /*入力欄をクリックしたとき*/
 }
 /*idをCSSで指定するときは#が必要*/
 /*最初は検索中メッセージは表示しない*/
-#loding-message {
+#loading-message {
     display: none;
     margin-top: 15px;
     font-weight: bold;
