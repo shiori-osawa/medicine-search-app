@@ -62,7 +62,8 @@ def index():
 
         response = client.responses.create(
         model="gpt-5.5",
-        input=prompt
+        input=prompt,
+        max_output_tokens=1200
         )
         answer= markdown.markdown(response.output_text)
 
