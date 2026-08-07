@@ -68,7 +68,7 @@ def index():
         answer= markdown.markdown(response.output_text)
 
         return render_template(
-            "index.html.",
+            "index.html",
             answer=answer,
             medicine=medicine,
             condition=condition,
