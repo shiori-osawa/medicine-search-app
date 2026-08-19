@@ -50,12 +50,11 @@ def index():
         prompt+=f"""
         患者情報を考慮して、{medicine}の代替薬を探し、
         以下の項目ごとにわかりやすく説明してください。
+        各項目は簡潔に説明してください。
+
         ・代替薬がある場合はその候補
         ・当該薬と代替薬の相違点
-        ・代替薬の適応症
-        ・代替薬の主な副作用、禁忌薬、禁忌病態
         ・患者情報を考慮した注意点
-        
         
         """
         
@@ -63,7 +62,7 @@ def index():
         response = client.responses.create(
         model="gpt-5.5",
         input=prompt,
-        max_output_tokens=1200
+        max_output_tokens=1000
         )
         answer= markdown.markdown(response.output_text)
 
